@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Configure the runner
-./config.sh --url https://github.com/champaLab/api-demo --token AWVUWBDSRADHCWRJPGVV7KTHBKFPW
+./config.sh --url $RUNNER_URL --token $RUNNER_TOKEN --unattended --replace
+
 # Start the runner
 ./run.sh

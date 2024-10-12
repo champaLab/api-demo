@@ -32,8 +32,8 @@ RUN mkdir -p /actions-runner && cd /actions-runner \
     && tar xzf ./actions-runner-linux-x64.tar.gz
 
 # Set up GitHub Actions Runner token and URL as environment variables
-ENV RUNNER_TOKEN=your_runner_token
-ENV RUNNER_URL=https://github.com/your-organization/your-repo
+ENV RUNNER_TOKEN=AWVUWBDSRADHCWRJPGVV7KTHBKFPW
+ENV RUNNER_URL=https://github.com/champaLab/api-demo
 
 # Install runner dependencies
 RUN /actions-runner/bin/installdependencies.sh
@@ -46,3 +46,5 @@ WORKDIR /actions-runner
 
 # Start the runner
 ENTRYPOINT ["./start.sh"]
+
+
