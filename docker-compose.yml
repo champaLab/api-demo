@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  github-runner:
+    image: myoung34/github-runner:latest
+    environment:
+      - REPO_URL=https://github.com/champaLab/api-demo
+      - RUNNER_NAME=api-demo-runner
+      - RUNNER_TOKEN=AWVUWBH7M6IIAADF3MJJU63HBJ2WQ
+      - RUNNER_WORKDIR=/tmp/github-runner
+      - LABELS=self-hosted,Linux,X64
+      - RUNNER_GROUP=Default
+      - EPHEMERAL=true # Optional: Whether to remove the runner after each job
+    volumes:
+      - "./runner-data:/tmp/github-runner"
+    restart: always
