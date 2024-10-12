@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "name": "api-demo",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
