@@ -1,31 +1,11 @@
-# version: "3.8"
-
-# services:
-#   github-runner:
-#     image: myoung34/github-runner:latest
-#     environment:
-#       - REPO_URL=https://github.com/champaLab/api-demo
-#       - RUNNER_NAME=api-demo-runner
-#       - RUNNER_TOKEN=AWVUWBH7M6IIAADF3MJJU63HBJ2WQ
-#       - RUNNER_WORKDIR=/tmp/github-runner
-#       - LABELS=self-hosted,Linux,X64
-#       - RUNNER_GROUP=Default
-#       - EPHEMERAL=true # Optional: Whether to remove the runner after each job
-#     volumes:
-#       - "./runner-data:/tmp/github-runner"
-#     restart: always
-
-version: "3.8"
-
+version: "3"
 services:
-  github-runner-nodejs:
-    build: .
-    container_name: github-actions-runner-nodejs
-    ports:
-      - "3000:3000" # Expose your Node.js app's port (adjust if necessary)
+  node-app:
+    image: node:22
+    container_name: node-app
+    working_dir: /usr/src/app
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - RUNNER_NAME=my-runner
-      - RUNNER_WORK_DIRECTORY=/actions-runner/_work
-    restart: unless-stopped
+      - .:/usr/src/app
+    ports:
+      - "8080:8080"
+    command: yarn start # or npm start
